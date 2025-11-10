@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Химчистка мебели | @himchistka_doclean62</title>
+  <meta name="description" content="Профессиональная химчистка диванов, кресел, ковров с выездом. Москва и МО. @himchistka_doclean62" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#1DA1F2', accent: '#10B981' },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg { 
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
+                    url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; 
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Alpine: Menu + Form + Toast -->
+  <div x-data="{ open: false, success: false, loading: false, form: {name:'', phone:'', email:'', message:''} }">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-primary">DoClean62</h1>
+            <span class="ml-2 text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Химчистка</span>
+          </div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="#home" class="text-gray-700 hover:text-primary transition">Главная</a>
+            <a href="#services" class="text-gray-700 hover:text-primary transition">Услуги</a>
+            <a href="#prices" class="text-gray-700 hover:text-primary transition">Цены</a>
+            <a href="#contacts" class="text-gray-700 hover:text-primary transition">Контакты</a>
+          </nav>
+          <button @click="open = !open" class="md:hidden text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div x-show="open" class="md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="#home" @click="open=false" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Главная</a>
+          <a href="#services" @click="open=false" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Услуги</a>
+          <a href="#prices" @click="open=false" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Цены</a>
+          <a href="#contacts" @click="open=false" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Контакты</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero-bg text-white py-24 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Химчистка мебели</h1>
+        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Диваны, кресла, ковры — чистим на дому. Без химии. Быстро. Москва и МО.</p>
+        <a href="https://t.me/himchistka_doclean62" target="_blank" class="bg-[#1DA1F2] hover:bg-[#0d8bd9] text-white font-bold py-3 px-8 rounded-full inline-flex items-center transition transform hover:scale-105">
+          <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.037.472 0 .306-.054.587-.654.906-.61.32-1.36.543-2.19.679-.89.14-1.82.292-2.31.292-.236 0-.47-.06-.68-.18-.24-.14-.4-.37-.51-.61-.1-.24-.15-.5-.15-.77 0-.27.09-.5.27-.69.18-.19.43-.32.72-.33.29-.01.56.02.79.09.23.07.45.18.68.32.23.14.39.32.48.54.09.22.16.44.16.66 0 .22-.06.41-.18.58-.12.17-.3.31-.5.41-.2.1-.43.16-.68.16-.25 0-.48-.08-.68-.23-.2-.15-.34-.35-.44-.58-.1-.23-.15-.45-.15-.67 0-.22.06-.41.18-.58.12-.17.3-.31.5-.41.2-.1.43-.16.68-.16.25 0 .48.08.68.23.2.15.34.35.44.58.1.23.15.45.15.67z"/>
+          </svg>
+          Написать в Telegram
+        </a>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Наши услуги</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition">
+            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">Диван</div>
+            <h3 class="text-xl font-semibold mb-2">Чистка диванов</h3>
+            <p class="text-gray-600">Ткань, кожа, велюр — любой материал.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition">
+            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">Кресло</div>
+            <h3 class="text-xl font-semibold mb-2">Чистка кресел</h3>
+            <p class="text-gray-600">Офисные, домашние, авто.</p>
+          </div>
+          <div class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition">
+            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">Ковёр</div>
+            <h3 class="text-xl font-semibold mb-2">Чистка ковров</h3>
+            <p class="text-gray-600">На дому, без снятия.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="prices" class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Цены</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow text-center">
+            <p class="text-sm text-gray-500">2-местный</p>
+            <p class="text-3xl font-bold text-primary">1500 ₽</p>
+            <p class="text-gray-600">Диван</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow text-center">
+            <p class="text-sm text-gray-500">3-местный</p>
+            <p class="text-3xl font-bold text-primary">2000 ₽</p>
+            <p class="text-gray-600">Диван</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow text-center">
+            <p class="text-sm text-gray-500">Кресло</p>
+            <p class="text-3xl font-bold text-primary">800 ₽</p>
+            <p class="text-gray-600">Обычное</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow text-center">
+            <p class="text-sm text-gray-500">Ковёр</p>
+            <p class="text-3xl font-bold text-primary">200 ₽</p>
+            <p class="text-gray-600">за м²</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts + Telegram Form -->
+    <section id="contacts" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Заказать через Telegram</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Контакты</h3>
+            <p class="flex items-center mb-3">
+              <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.885 7.89c.104.01.21.04.31.09.1.05.18.12.24.21.06.09.1.19.12.29.02.1.03.3.03.59 0 .3-.05.58-.65.9-.61.32-1.36.54-2.19.68-.89.14-1.82.29-2.31.29-.24 0-.47-.06-.68-.18-.24-.14-.4-.37-.51-.61-.1-.24-.15-.5-.15-.77 0-.27.09-.5.27-.69.18-.19.43-.32.72-.33.29-.01.56.02.79.09.23.07.45.18.68.32.23.14.39.32.48.54.09.22.16.44.16.66 0 .22-.06.41-.18.58-.12.17-.3.31-.5.41-.2.1-.43.16-.68.16-.25 0-.48-.08-.68-.23-.2-.15-.34-.35-.44-.58-.1-.23-.15-.45-.15-.67 0-.22.06-.41.18-.58.12-.17.3-.31.5-.41.2-.1.43-.16.68-.16.25 0 .48.08.68.23.2.15.34.35.44.58.1.23.15.45.15.67z"/>
+              </svg>
+              <a href="https://t.me/himchistka_doclean62" target="_blank" class="text-primary font-medium hover:underline">@himchistka_doclean62</a>
+            </p>
+            <p class="flex items-center mb-3"><span class="text-primary mr-2">Phone</span> +7 (999) 123-45-67</p>
+            <p class="flex items-center mb-3"><span class="text-primary mr-2">Email</span> doclean62@mail.ru</p>
+            <p class="flex items-center"><span class="text-primary mr-2">Location</span> Москва и МО</p>
+          </div>
+
+          <!-- Telegram Form -->
+          <form @submit.prevent="sendToTelegram" class="space-y-4">
+            <input x-model="form.name" type="text" placeholder="Ваше имя" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+            <input x-model="form.phone" type="tel" placeholder="Телефон (обязательно)" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+            <input x-model="form.email" type="email" placeholder="Email (по желанию)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" />
+            <textarea x-model="form.message" rows="3" placeholder="Что чистим? (диван 3-местный, кожа и т.д.)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+            
+            <button type="submit" :disabled="loading" class="w-full bg-[#1DA1F2] hover:bg-[#0d8bd9] text-white font-bold py-3 rounded-lg transition flex items-center justify-center">
+              <span x-show="!loading">Отправить в @himchistka_doclean62</span>
+              <span x-show="loading">Отправка...</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p>&copy; 2025 <strong>DoClean62</strong> — Химчистка мебели</p>
+        <p class="text-sm mt-2">
+          Telegram: <a href="https://t.me/himchistka_doclean62" class="underline">@himchistka_doclean62</a> | 
+          X: <a href="https://x.com/anatolij766971" class="underline">@anatolij766971</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div x-show="success" x-transition class="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center">
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+      Заявка отправлена в Telegram!
+    </div>
+
+    <!-- Telegram Integration Script -->
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.data('root', () => ({
+          form: { name: '', phone: '', email: '', message: '' },
+          loading: false,
+          success: false,
+
+          async sendToTelegram() {
+            this.loading = true;
+            this.success = false;
+
+            const BOT_TOKEN = '7855953243:AAH1dD5v8kL0pQeXz9mN7fR2tY6uI3oPqRs'; // ← ЗАМЕНИ НА СВОЙ ТОКЕН
+            const CHAT_ID = '-1002345678901'; // ← ЗАМЕНИ НА СВОЙ CHAT_ID
+
+            const text = `
+НОВАЯ ЗАЯВКА с сайта DoClean62
+
+Имя: ${this.form.name}
+Телефон: ${this.form.phone}
+Email: ${this.form.email || '—'}
+Что чистим: ${this.form.message || '—'}
+
+@himchistka_doclean62
+            `.trim();
+
+            try {
+              const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  chat_id: CHAT_ID,
+                  text: text,
+                  parse_mode: 'HTML'
+                })
+              });
+
+              if (res.ok) {
+                this.success = true;
+                this.form = { name: '', phone: '', email: '', message: '' };
+                setTimeout(() => this.success = false, 5000);
+              } else {
+                alert('Ошибка: проверьте токен и chat_id');
+              }
+            } catch (err) {
+              alert('Нет интернета или ошибка Telegram API');
+            } finally {
+              this.loading = false;
+            }
+          }
+        }));
+      });
+    </script>
+  </div>
+</body>
+</html>
